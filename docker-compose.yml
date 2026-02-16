@@ -43,6 +43,8 @@ services:
   telegraf:
     image: telegraf:latest
     container_name: telegraf
+    ports:
+      - "8125:8125/udp"
     user: "telegraf"
     entrypoint: ["/usr/bin/telegraf"]
     command: ["--config", "/etc/telegraf/telegraf.conf"]

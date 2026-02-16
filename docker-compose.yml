@@ -41,7 +41,11 @@ services:
       start_period: 60s
 
   telegraf:
-    image: telegraf:latest
+    # image: telegraf:latest  # Official — uncomment to switch back
+    build:
+      context: /Users/jeff/Development/telegraf/fork-telegraf
+      dockerfile: /Users/jeff/Development/tig-stack/telegraf/Dockerfile
+    image: telegraf:custom-bugfix-tdd-18345
     container_name: telegraf
     ports:
       - "8125:8125/udp"
